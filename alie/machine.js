@@ -8,6 +8,7 @@
   height: 23px;
 }
 */
+/*
 $(window).scroll(function() {
     var wt = $(window).scrollTop();
     var wh = $(window).height();
@@ -21,6 +22,7 @@ $(window).scroll(function() {
 $('.pheader').hide();
 var gl_page = new Page();
     gl_page.initCache();
+*/
 /*
 //var intervalID = setInterval(function(){alert("Interval reached");}, 5000);
 $(document).ready(function(e){
