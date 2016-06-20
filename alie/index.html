@@ -26,7 +26,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script> 
     <script src="controler.js"></script>
     <script src="machine.js"></script>
   </head>
@@ -170,7 +170,7 @@
              <td id="image"   class="col-xs-4  col-sm-2 col-md-2 col-lg-2 vcenter myfix"><a target="_blank" href="{{item.url}}"><img data-ng-src="{{item.img}}" alt="{{item.title}}" class="img-thumbnail"/></a></td>
              <td id="title"   class="col-xs-6  col-sm-5 col-md-5 col-lg-5 vcenter myfix"><a target="_blank" href="{{item.url}}"><div data-ng-bind-html="item.title"></div></a></td>
              <td id="date_n"  class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ item.date }}</td>
-             <td id="price_n" class="col-xs-1  col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ item.price_new }}</td>
+             <td id="price_n" class="col-xs-1  col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ item.price_new | currency : "&euro;" : 2}}</td>
              <td id="price_o" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ item.price_old | currency : "&euro;" : 2}}</td>
              <td id="price_d" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ item.price_old - item.price_new | currency : "&euro;" : 2}}</td>
              <td id="price_p" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ (100*(item.price_old - item.price_new)/(item.price_old)) | currency : "" : 2 }} %</td>
