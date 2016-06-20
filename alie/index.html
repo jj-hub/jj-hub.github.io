@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="phonecatApp">
+<html lang="en" data-ng-app="poogleApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,10 +26,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script> 
     <script src="controler.js"></script>
     <script src="machine.js"></script>
   </head>
-  <body data-ng-controller="PhoneListCtrl">
+  <body data-ng-controller="PoogleCtrl">
 <div class="container-fluid pheader">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -165,14 +166,14 @@
 
 <div class="container-fluid">
     <table id="my_table" class="table table-striped">
-         <tr data-ng-repeat="phone in phones | filter:query ">
-             <td id="image"   class="col-xs-4  col-sm-2 col-md-2 col-lg-2 vcenter myfix"><a target="_blank" href="{{phone.url}}"><img data-ng-src="{{phone.img}}" alt="{{phone.title}}" class="img-thumbnail"/></a></td>
-             <td id="title"   class="col-xs-6  col-sm-5 col-md-5 col-lg-5 vcenter myfix"><a target="_blank" href="{{phone.url}}">{{phone.title}}</a></td>
-             <td id="date_n"  class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ phone.date }}</td>
-             <td id="price_n" class="col-xs-1  col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ phone.price_new | currency : "&euro;" : 2}}</td>
-             <td id="price_o" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ phone.price_old | currency : "&euro;" : 2}}</td>
-             <td id="price_d" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ phone.price_new - phone.price_new | currency : "&euro;" : 2}}</td>
-             <td id="price_p" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ 0 | currency : "&euro;" : 2}}</td>
+         <tr data-ng-repeat="item in data | filter:query ">
+             <td id="image"   class="col-xs-4  col-sm-2 col-md-2 col-lg-2 vcenter myfix"><a target="_blank" href="{{item.url}}"><img data-ng-src="{{item.img}}" alt="{{item.title}}" class="img-thumbnail"/></a></td>
+             <td id="title"   class="col-xs-6  col-sm-5 col-md-5 col-lg-5 vcenter myfix"><a target="_blank" href="{{item.url}}"><div data-ng-bind-html="item.title"></div></a></td>
+             <td id="date_n"  class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ item.date }}</td>
+             <td id="price_n" class="col-xs-1  col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ item.price_new }}</td>
+             <td id="price_o" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ item.price_old | currency : "&euro;" : 2}}</td>
+             <td id="price_d" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix    ">{{ item.price_old - item.price_new | currency : "&euro;" : 2}}</td>
+             <td id="price_p" class="hidden-xs col-sm-1 col-md-1 col-lg-1 vcenter myfix mc2">{{ (100*(item.price_old - item.price_new)/(item.price_old)) | currency : "" : 2 }} %</td>
          </tr>
     </table>
 </div>
@@ -192,6 +193,5 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
             crossorigin="anonymous">
     </script>
-
   </body>
 </html>

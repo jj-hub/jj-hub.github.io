@@ -46,11 +46,25 @@ function igo(){
 function istrcmp_asc ( str1, str2 ) {return ( ( str1 == str2 ) ? 0 : ( ( str1 > str2 ) ? 1 : -1 ) );}
 function istrcmp_dsc ( str1, str2 ) {return ( ( str1 == str2 ) ? 0 : ( ( str1 < str2 ) ? 1 : -1 ) );}
 
-function isort_str_asc(by_id){$('tr').sort(function(a,b){return istrcmp_asc($('>#'+by_id,a).html(),$('>#'+by_id,b).html());}).appendTo('#my_table');}
-function isort_str_dsc(by_id){$('tr').sort(function(a,b){return istrcmp_dsc($('>#'+by_id,a).html(),$('>#'+by_id,b).html());}).appendTo('#my_table');}
+function isort_str_asc(by_id){
+  $('tr').sort(function(a,b){
+    return istrcmp_asc(
+        $('#'+by_id,a).html(),
+        $('#'+by_id,b).html()
+    );
+  }).appendTo('#my_table');
+}
+function isort_str_dsc(by_id){$('tr').sort(function(a,b){return istrcmp_dsc($('#'+by_id,a).html(),$('#'+by_id,b).html());}).appendTo('#my_table');}
 
-function isort_int_asc(by_id){$('tr').sort(function(a,b){return parseFloat($('>#'+by_id,a).html())-parseFloat($('>#'+by_id,b).html());}).appendTo('#my_table');}
-function isort_int_dsc(by_id){$('tr').sort(function(a,b){return parseFloat($('>#'+by_id,b).html())-parseFloat($('>#'+by_id,a).html());}).appendTo('#my_table');}
+function isort_int_asc(by_id){$('tr').sort(function(a,b){return parseFloat($('#'+by_id,a).html())-parseFloat($('#'+by_id,b).html());}).appendTo('#my_table');}
+function isort_int_dsc(by_id){
+  $('tr').sort(
+    function(a,b){
+      return 
+        parseFloat($('#'+by_id,b).html())-parseFloat($('#'+by_id,a).html());
+    }
+  ).appendTo('#my_table');
+}
 
 /*
 function handleClick(cb,tag) {

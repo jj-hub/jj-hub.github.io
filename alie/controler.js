@@ -1,8 +1,8 @@
-var phonecatApp = angular.module('phonecatApp', []);
+var poogleApp = angular.module('poogleApp', ["ngSanitize"]);
 
-phonecatApp.controller('PhoneListCtrl', function ($scope, $http) {
+poogleApp.controller('PoogleCtrl', function ($scope, $http) {
   $http.get('v/view_1').success(function(data) {
-    $scope.phones = data;
+    $scope.data = data;
   });
 
   $scope.orderProp = 'price_new';
