@@ -93,8 +93,6 @@ THE SOFTWARE.
 
 @angular/material/icon
 
-@angular/material/slide-toggle
-
 @angular/platform-browser
 MIT
 
