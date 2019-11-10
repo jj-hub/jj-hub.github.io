@@ -93,6 +93,8 @@ THE SOFTWARE.
 
 @angular/material/icon
 
+@angular/material/tooltip
+
 @angular/platform-browser
 MIT
 
